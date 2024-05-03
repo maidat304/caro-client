@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.control.Icon?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #008DDA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.registerController">
+   <children>
+      <Button fx:id="uploadButton" layoutX="754.0" layoutY="373.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #F7EEDD;" textFill="#060502" AnchorPane.rightAnchor="154.0">
+         <graphic>
+<!--            <Icon content="EMPTY" />-->
+         </graphic>
+         <graphic>
+            <ImageView fx:id="uploadImageView" fitHeight="44.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/image.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fx:id="avataImage" fitHeight="200.0" fitWidth="200.0" layoutX="723.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="144.0">
+         <image>
+            <Image url="@../../../Images/naruto.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F7EEDD;">
+         <children>
+            <Button fx:id="backToLogin" layoutX="4.0" layoutY="21.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="48.0" layoutY="25.0" prefHeight="27.0" prefWidth="122.0" text="Back to Login" textFill="#008dda">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="20.0" layoutY="39.0" prefHeight="520.0" prefWidth="510.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="560.0" text="Register" textFill="#008dd9">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutY="80.0" prefHeight="45.0" prefWidth="560.0">
+                     <children>
+                        <TextField fx:id="userID" prefHeight="45.0" prefWidth="560.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #41C9E2;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="14.0" layoutY="138.0" prefHeight="25.0" prefWidth="122.0" text="USER NAME" textFill="#008dda">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutY="164.0" prefHeight="45.0" prefWidth="560.0">
+                     <children>
+                        <TextField fx:id="userName" prefHeight="45.0" prefWidth="560.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #41C9E2;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutY="246.0" prefHeight="45.0" prefWidth="560.0">
+                     <children>
+                        <PasswordField fx:id="password" prefHeight="45.0" prefWidth="580.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #41C9E2;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </HBox>
+                  <HBox layoutY="327.0" prefHeight="45.0" prefWidth="560.0">
+                     <children>
+                        <PasswordField fx:id="rePassword" prefHeight="45.0" prefWidth="580.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-border-color: #41C9E2;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </HBox>
+                  <Label fx:id="registerMessageLabel" alignment="CENTER" layoutY="373.0" prefHeight="60.0" prefWidth="600.0" text="Password requires at least 6 characters including : letters and digits">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="sendButton" layoutX="228.0" layoutY="433.0" mnemonicParsing="false" onAction="#sendButtonAction" prefHeight="44.0" prefWidth="144.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #008DDA;" text="SEND" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="21.0" layoutY="53.0" prefHeight="12.0" prefWidth="84.0" text="USER ID" textFill="#008dda">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="14.0" layoutY="220.0" prefHeight="25.0" prefWidth="122.0" text="PASSWORD" textFill="#008dda">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" layoutX="14.0" layoutY="301.0" prefHeight="25.0" prefWidth="200.0" text="REWRITE PASSWORD" textFill="#008dda">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+
+   </children>
+</AnchorPane>

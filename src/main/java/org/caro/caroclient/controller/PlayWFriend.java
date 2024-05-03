@@ -1,4 +1,4 @@
 package org.caro.caroclient.controller;
 
-public class test {
+public class PlayWFriend {
 }

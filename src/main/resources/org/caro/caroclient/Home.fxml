@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #f7eedd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.HomeController">
+   <children>
+      <AnchorPane layoutX="280.0" prefHeight="450.0" prefWidth="400.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <VBox prefHeight="450.0" prefWidth="400.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="avatarImage" fitHeight="150.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/naruto.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="110.0" right="110.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="userID" alignment="CENTER" prefWidth="400.0">
+                     <font>
+                        <Font name="Bell MT Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="playNowButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-radius: 30 0 0 30; -fx-background-color: #008DDA;" text="CHƠI NGAY" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="playWithFriendButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" style="-fx-background-radius: 0 30 30 0; -fx-background-color: #008DDA;" text="CHƠI VỚI BẠN" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="90.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Label layoutX="889.0" layoutY="1.0" text="EXIT" textFill="#008dda" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="1.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="941.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+         <image>
+            <Image url="@../../../Images/exit.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="9.0" layoutY="474.0" prefHeight="112.0" prefWidth="960.0">
+         <children>
+            <BorderPane prefHeight="112.0" prefWidth="150.0">
+               <center>
+                  <ImageView fx:id="friendImage" fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../../Images/users.png" />
+                     </image>
+                  </ImageView>
+               </center>
+               <bottom>
+                  <Button fx:id="friendButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="BẠN BÈ" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane prefHeight="112.0" prefWidth="150.0">
+               <center>
+                  <ImageView fx:id="awardImage" fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../../Images/award.png" />
+                     </image>
+                  </ImageView>
+               </center>
+               <bottom>
+                  <Button fx:id="rankButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="XẾP HẠNG" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane prefHeight="112.0" prefWidth="150.0">
+               <center>
+                  <ImageView fx:id="chatImage" fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../../Images/messenger.png" />
+                     </image>
+                  </ImageView>
+               </center>
+               <bottom>
+                  <Button fx:id="chatButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="CHAT" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane prefHeight="112.0" prefWidth="150.0">
+               <center>
+                  <ImageView fx:id="menuImage" fitHeight="59.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../../Images/tally-3.png" />
+                     </image>
+                  </ImageView>
+               </center>
+               <bottom>
+                  <Button fx:id="menuButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="MENU" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane prefHeight="112.0" prefWidth="150.0">
+               <center>
+                  <ImageView fx:id="settingImage" fitHeight="59.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../../Images/user-gear.png" />
+                     </image>
+                  </ImageView>
+               </center>
+               <bottom>
+                  <Button fx:id="settingButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="THÔNG TIN" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </children>
+         <padding>
+            <Insets left="60.0" right="60.0" />
+         </padding>
+      </HBox>
+   </children>
+</AnchorPane>

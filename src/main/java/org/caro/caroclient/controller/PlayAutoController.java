@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.demo.controller.Utils.goToScene;
+import static org.caro.caroclient.controller.Utils.goToScene;
 
 public class PlayAutoController implements Initializable{
 

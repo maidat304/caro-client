@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #f7eedd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.HomeController">
+<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #f7eedd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.HomeController">
    <children>
       <AnchorPane layoutX="280.0" prefHeight="450.0" prefWidth="400.0" AnchorPane.topAnchor="0.0">
          <children>

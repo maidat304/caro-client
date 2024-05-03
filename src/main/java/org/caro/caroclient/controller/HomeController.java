@@ -1,20 +1,19 @@
 package org.caro.caroclient.controller;
 
-import com.example.demo.model.UserDB;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.demo.model.UserDB.getUserId;
-import static com.example.demo.model.UserDB.getUserInfo;
-import static com.example.demo.controller.Utils.goToScene;
-import static com.example.demo.controller.Utils.alertScene;
+
+import static org.caro.caroclient.controller.Utils.alertScene;
+import static org.caro.caroclient.controller.Utils.goToScene;
+import static org.caro.caroclient.model.UserDB.getUserId;
 
 public class HomeController implements Initializable {
 

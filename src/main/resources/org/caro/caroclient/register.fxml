@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #008DDA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.registerController">
+<AnchorPane prefHeight="600.0" prefWidth="960.0" style="-fx-background-color: #008DDA;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.registerController">
    <children>
       <Button fx:id="uploadButton" layoutX="754.0" layoutY="373.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: #F7EEDD;" textFill="#060502" AnchorPane.rightAnchor="154.0">
          <graphic>

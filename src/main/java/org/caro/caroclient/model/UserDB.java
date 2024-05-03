@@ -1,6 +1,7 @@
 package org.caro.caroclient.model;
 
-import com.example.demo.controller.DatabaseConnection;
+
+import org.caro.caroclient.controller.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

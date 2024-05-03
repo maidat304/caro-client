@@ -1,6 +1,6 @@
 package org.caro.caroclient.controller;
 
-import com.example.demo.model.UserDB;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,8 +12,10 @@ import javafx.event.ActionEvent;
 import java.util.ResourceBundle;
 import java.net.URL;
 
-import static com.example.demo.controller.Utils.goToScene;
-import static com.example.demo.model.UserDB.*;
+import static org.caro.caroclient.controller.Utils.goToScene;
+import static org.caro.caroclient.model.UserDB.getHasUser;
+import static org.caro.caroclient.model.UserDB.getUserInfo;
+
 
 public class LoginController implements Initializable {
     @FXML

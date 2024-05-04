@@ -14,7 +14,7 @@ public class Utils {
         Stage currentStage = (Stage) node.getScene().getWindow();
         currentStage.close();
         try {
-            FXMLLoader loader = new FXMLLoader(Utils.class.getResource("/com/example/demo/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(Utils.class.getResource("/org/caro/caroclient/" + fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -28,7 +28,7 @@ public class Utils {
 
     public static void alertScene(String fxmlFile, String title){
         try {
-            FXMLLoader loader = new FXMLLoader(Utils.class.getResource("/com/example/demo/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(Utils.class.getResource("/org/caro/caroclient/" + fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();

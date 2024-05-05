@@ -5,15 +5,12 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.ChatControler">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
         <items>
@@ -30,16 +27,7 @@
                   </AnchorPane>
                   <ScrollPane layoutY="64.0" prefHeight="334.0" prefWidth="175.0" style="-fx-background-color: #F7EEDD;">
                      <content>
-                        <HBox prefHeight="45.0" prefWidth="173.0" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
-                           <children>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Images/naruto.png" />
-                                 </image>
-                              </ImageView>
-                              <Label prefHeight="44.0" prefWidth="127.0" text="Label" />
-                           </children>
-                        </HBox>
+                        <VBox fx:id="viewArea" prefHeight="333.0" prefWidth="174.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -55,9 +43,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ScrollPane layoutY="64.0" prefHeight="290.0" prefWidth="417.0">
+                  <ScrollPane fx:id="scrollMessageArea" layoutY="64.0" prefHeight="290.0" prefWidth="417.0">
                      <content>
-                        <VBox prefHeight="287.0" prefWidth="410.0" style="-fx-background-color: #F7EEDD;">
+                        <VBox fx:id="messageArea" prefHeight="287.0" prefWidth="410.0" style="-fx-background-color: #F7EEDD;">
                            <children>
                               <HBox prefHeight="45.0" prefWidth="410.0" />
                            </children>
@@ -67,7 +55,7 @@
                   <AnchorPane layoutY="354.0" prefHeight="44.0" prefWidth="417.0" style="-fx-background-color: #F7EEDD;">
                      <children>
                         <Button fx:id="sendButton" layoutX="360.0" layoutY="2.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="42.0" text="Button" />
-                        <TextField fx:id="TextField" layoutY="2.0" prefHeight="37.0" prefWidth="357.0" promptText="Nhập để gửi tin nhắn....">
+                        <TextField fx:id="textField" layoutY="2.0" prefHeight="37.0" prefWidth="357.0" promptText="Nhập để gửi tin nhắn....">
                            <font>
                               <Font size="14.0" />
                            </font>

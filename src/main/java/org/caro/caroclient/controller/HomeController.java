@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 import static org.caro.caroclient.controller.Utils.alertScene;
 import static org.caro.caroclient.controller.Utils.goToScene;
-import static org.caro.caroclient.model.UserDB.getUserId;
+import static org.caro.caroclient.model.UserManager.getNameUser;
 
 public class HomeController implements Initializable {
 
@@ -61,7 +61,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menuImage.setRotate(270);
-        userID.setText(getUserId());
+        userID.setText("Name : "+  getNameUser());
         playNowButton.setOnAction(actionEvent ->{
             goToScene("PlayAuto.fxml","Play now",playNowButton);
         });

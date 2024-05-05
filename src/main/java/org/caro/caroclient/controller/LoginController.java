@@ -13,8 +13,8 @@ import java.util.ResourceBundle;
 import java.net.URL;
 
 import static org.caro.caroclient.controller.Utils.goToScene;
-import static org.caro.caroclient.model.UserDB.getHasUser;
-import static org.caro.caroclient.model.UserDB.getUserInfo;
+import static org.caro.caroclient.model.UserManager.getUserInfo;
+import static org.caro.caroclient.model.UserManager.hasUser;
 
 
 public class LoginController implements Initializable {
@@ -53,7 +53,7 @@ public class LoginController implements Initializable {
            //kiem tra xem co user k + lay thong tin user
            getUserInfo(userNameField.getText(), passwordField.getText());
            //neu co user
-           if(getHasUser()){
+           if(hasUser()){
                loginMessageLabel.setText("success!");
                loginMessageLabel.setStyle("-fx-text-fill: #44ff66;");
                goToScene("Home.fxml","HOME",loginMessageLabel);

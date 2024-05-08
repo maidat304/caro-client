@@ -9,6 +9,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -34,17 +35,24 @@ public class ChatControler implements Initializable {
     private VBox viewArea;
     @FXML
     private ScrollPane scrollMessageArea;
+    @FXML
+    private Button addFriendButton;
+
+    @FXML
+    private Button findButton;
     public ChatControler(){
-        //lay thong tin friend
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setListFriend();
-        System.out.println("da lay thong tin ban be");
+        messageArea.setSpacing(10);
+        textField.getStylesheets().add("-fx-text-fill: white;");
+        //them ban be vao vbox
         for(String name : getListFriendNames()){
             HBox friendInfoView = new HBox();
+            friendInfoView.setSpacing(10);
+            friendInfoView.setStyle("-fx-border-color : white;");
             friendInfoView.setOnMouseClicked(mouseEvent -> {
                 sendMessageToFriend(friendInfoView);
             });
@@ -52,7 +60,6 @@ public class ChatControler implements Initializable {
 
             friendInfoView.setPrefHeight(45);
             friendInfoView.setPrefWidth(173);
-            friendInfoView.setStyle("-fx-background-color : #9bdcff;");
 
             friendAvatar.setFitWidth(45);
             friendAvatar.setFitHeight(45);
@@ -66,6 +73,7 @@ public class ChatControler implements Initializable {
             friendInfoView.getChildren().add(friendNameLabel);
             viewArea.getChildren().add(friendInfoView);
         }
+
     }
 
     private void sendMessageToFriend(HBox friendInfoView){
@@ -76,16 +84,25 @@ public class ChatControler implements Initializable {
         friendsNameLabel.setText(friendsName);
 
         sendButton.setOnAction(actionEvent -> {
-            String content = textField.getText();
-            Label newMessage = new Label();
-            newMessage.setStyle("-fx-font-size : 14px;" );
-            newMessage.setText("<You> : "+ content);
-            if(!content.isEmpty()){
-                messageArea.getChildren().add(newMessage);
-                textField.clear();
-                scrollMessageArea.setVvalue(1.0);
+            send();
+        });
+        textField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                send();
+                event.consume();
             }
         });
 
+    }
+    public void send(){
+        String content = textField.getText();
+        Label newMessage = new Label();
+        newMessage.setStyle("-fx-font-size : 14px;" );
+        newMessage.setText("<You> : "+ content);
+        if(!content.isEmpty()){
+            messageArea.getChildren().add(newMessage);
+            textField.clear();
+            scrollMessageArea.setVvalue(1.0);
+        }
     }
 }

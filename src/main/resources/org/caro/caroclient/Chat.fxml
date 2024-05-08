@@ -5,8 +5,9 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -16,7 +17,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="208.0">
                <children>
-                  <AnchorPane prefHeight="64.0" prefWidth="175.0" style="-fx-background-color: #008dda;">
+                  <AnchorPane layoutY="-12.0" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: #023C5B;">
                      <children>
                         <Label alignment="CENTER" layoutX="26.0" layoutY="13.0" prefHeight="37.0" prefWidth="124.0" text="DANH SÁCH BẠN BÈ" textFill="WHITE">
                            <font>
@@ -25,9 +26,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ScrollPane layoutY="64.0" prefHeight="334.0" prefWidth="175.0" style="-fx-background-color: #F7EEDD;">
+                  <ScrollPane layoutY="40.0" prefHeight="360.0" prefWidth="175.0" style="-fx-background-color: #023C5B;">
                      <content>
-                        <VBox fx:id="viewArea" prefHeight="333.0" prefWidth="174.0" />
+                        <VBox fx:id="viewArea" prefHeight="358.0" prefWidth="160.0" style="-fx-background-color: #023C5B;" />
                      </content>
                   </ScrollPane>
                </children>
@@ -36,26 +37,34 @@
                <children>
                   <AnchorPane prefHeight="64.0" prefWidth="417.0" style="-fx-background-color: #008dda;">
                      <children>
-                        <Label fx:id="friendsNameLabel" layoutX="14.0" layoutY="13.0" prefHeight="37.0" prefWidth="145.0" text="Name" textFill="WHITE">
+                        <Label fx:id="friendsNameLabel" layoutX="14.0" layoutY="22.0" prefHeight="37.0" prefWidth="145.0" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Label fx:id="friendsNameLabel1" layoutX="14.0" layoutY="3.0" prefHeight="27.0" prefWidth="175.0" text="Bạn đang nhắn tin với : " textFill="WHITE" />
                      </children>
                   </AnchorPane>
                   <ScrollPane fx:id="scrollMessageArea" layoutY="64.0" prefHeight="290.0" prefWidth="417.0">
                      <content>
                         <VBox fx:id="messageArea" prefHeight="287.0" prefWidth="410.0" style="-fx-background-color: #F7EEDD;">
                            <children>
-                              <HBox prefHeight="45.0" prefWidth="410.0" />
+                              <Label alignment="CENTER" disable="true" prefHeight="283.0" prefWidth="405.0" text="Hãy chọn người để làm phiền họ " />
                            </children>
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <AnchorPane layoutY="354.0" prefHeight="44.0" prefWidth="417.0" style="-fx-background-color: #F7EEDD;">
+                  <AnchorPane layoutY="354.0" prefHeight="44.0" prefWidth="417.0" style="-fx-background-color: white;">
                      <children>
-                        <Button fx:id="sendButton" layoutX="360.0" layoutY="2.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="42.0" text="Button" />
-                        <TextField fx:id="textField" layoutY="2.0" prefHeight="37.0" prefWidth="357.0" promptText="Nhập để gửi tin nhắn....">
+                        <Button fx:id="sendButton" layoutX="360.0" layoutY="2.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="42.0" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/plane.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <TextField fx:id="textField" layoutY="2.0" prefHeight="37.0" prefWidth="357.0" promptText="Nhập để gửi tin nhắn...." style="-fx-background-color: transparent;">
                            <font>
                               <Font size="14.0" />
                            </font>

@@ -1,17 +1,16 @@
 package org.caro.caroclient.controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static org.caro.caroclient.controller.Utils.alertConfirm;
 
 public class MenuController implements Initializable{
 
@@ -111,16 +110,19 @@ public class MenuController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cancelButton.setOnAction(actionEvent -> {
-            Stage stage = (Stage) cancelButton.getScene().getWindow();
-            stage.close();
+            boolean alertResult = alertConfirm("Confirmation","Chắc chắn muốn thoát ?","");
+            if(alertResult){
+                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                stage.close();
+            }
         });
 
         // phan am thanh
         slideBar.setValue(20);
         volumeLabel.setText(20+"%");
-        slideBar.setOnMouseReleased(event -> {
-            Double value = slideBar.valueProperty().getValue();
-           volumeLabel.setText(value+"%");
+        slideBar.valueProperty().addListener((observable, oldValue, newValue) -> {
+            int value = newValue.intValue();
+            volumeLabel.setText(value + "%");
         });
 
         customeButton.setToggleGroup(musicGroup);
@@ -130,6 +132,12 @@ public class MenuController implements Initializable{
         button1.setToggleGroup(helpGroup);
         button2.setToggleGroup(helpGroup);
         button3.setToggleGroup(helpGroup);
+        sendButton.setOnAction(actionEvent -> {
+            boolean resultAlertHelp = alertConfirm("Xác nhận","Bạn chắc chắn muốn gửi phản hồi ?","tiếp tục :");
+            if(resultAlertHelp){
+                sendFeedBack();
+            }
+        });
 
 
         // phan color

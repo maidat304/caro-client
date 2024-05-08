@@ -21,8 +21,8 @@ public class UserManager {
         this.user.setUserPassword(userPassword);
     }
 
-    public static String getNameUser(){
-        return user.getUserName();
+    public static UserDB getUser(){
+        return user;
     }
     public static void getUserInfo(String username, String password) {
         try {

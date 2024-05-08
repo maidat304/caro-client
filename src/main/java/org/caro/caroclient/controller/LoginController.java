@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 
 import javafx.event.ActionEvent;
+import javafx.scene.layout.StackPane;
+
 import java.util.ResourceBundle;
 import java.net.URL;
 
@@ -28,30 +30,63 @@ public class LoginController implements Initializable {
     private Label moveToRegister;
     @FXML
     private Button loginButton;
-    
+    @FXML
+    private Label labelShowPassword;
+    @FXML
+    private Button showPasswordButton;
 
+    @FXML
+    private TextField textPassword;
 
+    private String password ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         moveToRegister.setOnMouseClicked(event -> {
             goToScene("register.fxml","Register", moveToRegister);
         });
-
+        textPassword.setVisible(false);
+        passwordField.setVisible(true);
+        showPasswordButton.setOnAction(actionEvent -> {
+            if (labelShowPassword.getText().equals("Show")) {
+                password = passwordField.getText();
+                textPassword.setText(password);
+                passwordField.setVisible(false);
+                textPassword.setVisible(true);
+                textPassword.setEditable(true);
+                labelShowPassword.setText("Hide");
+            } else {
+                password = textPassword.getText();
+                passwordField.setText(password);
+                passwordField.setVisible(true);
+                textPassword.setVisible(false);
+                labelShowPassword.setText("Show");
+            }
+        });
     }
     public void loginButtonOnAction(ActionEvent event){
-        loginButton.setOnMousePressed(mouseEvent -> {
-            loginButton.setStyle("-fx-background-color : #DDF7F7");
-        });
-        if(!userNameField.getText().isBlank() && !passwordField.getText().isBlank()){
-            validate();
-        }else{
-            loginMessageLabel.setText("Please enter user id and password");
+        if(passwordField.isVisible()){
+            if(!userNameField.getText().isBlank() && !passwordField.getText().isBlank()){
+                validate();
+            }else{
+                loginMessageLabel.setText("Please enter user id and password");
+            }
+        }else {
+            if(!userNameField.getText().isBlank() && !textPassword.getText().isBlank()){
+                validate();
+            }else{
+                loginMessageLabel.setText("Please enter user id and password");
+            }
         }
    }
    public void validate(){
        try{
            //kiem tra xem co user k + lay thong tin user
-           getUserInfo(userNameField.getText(), passwordField.getText());
+           if(passwordField.isVisible()){
+               getUserInfo(userNameField.getText(), passwordField.getText());
+           }else{
+               getUserInfo(userNameField.getText(), textPassword.getText());
+           }
+
            //neu co user
            if(hasUser()){
                loginMessageLabel.setText("success!");

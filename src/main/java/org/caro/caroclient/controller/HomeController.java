@@ -13,7 +13,8 @@ import java.util.ResourceBundle;
 
 import static org.caro.caroclient.controller.Utils.alertScene;
 import static org.caro.caroclient.controller.Utils.goToScene;
-import static org.caro.caroclient.model.UserManager.getNameUser;
+import static org.caro.caroclient.model.UserManager.getUser;
+import static org.caro.caroclient.model.UserManager.setListFriend;
 
 public class HomeController implements Initializable {
 
@@ -61,7 +62,8 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menuImage.setRotate(270);
-        userID.setText("Name : "+  getNameUser());
+        userID.setText("Name : "+ getUser().getUserName());
+        setListFriend();
         playNowButton.setOnAction(actionEvent ->{
             goToScene("PlayAuto.fxml","Play now",playNowButton);
         });
@@ -73,6 +75,15 @@ public class HomeController implements Initializable {
         });
         chatButton.setOnAction(actionEvent -> {
             alertScene("Chat.fxml","Chatting");
+        });
+        rankButton.setOnAction(actionEvent -> {
+            alertScene("XepHang.fxml", "Bang Xep Hang");
+        });
+        settingButton.setOnAction(actionEvent -> {
+            alertScene("UserInfo.fxml","Thong tin");
+        });
+        friendButton.setOnAction(actionEvent -> {
+            alertScene("ShowFriend.fxml","Danh sach ban be");
         });
     }
 

@@ -24,6 +24,11 @@ public class UserManager {
     public static UserDB getUser(){
         return user;
     }
+
+    public static void setUser(UserDB newUser) {
+        user = newUser;
+    }
+
     public static void getUserInfo(String username, String password) {
         try {
             DatabaseConnection connectionNow = new DatabaseConnection();
@@ -103,6 +108,61 @@ public class UserManager {
         List<String> list = new ArrayList<String>();
         for(UserDB friend : user.ListFriend){
             list.add(friend.getUserName());
+        }
+        return list;
+    }
+
+    public static void getMoreUserDetails(String id){
+        try{
+            DatabaseConnection connection = new DatabaseConnection();
+            Connection connection1 = connection.getConnection();
+
+            String query = "SELECT * FROM userDetails WHERE user_id = ?";
+            PreparedStatement statement = connection1.prepareStatement(query);
+            statement.setString(1, id);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                user.setPoint(resultSet.getInt("point"));
+               user.setTurns(resultSet.getInt("turns")) ;
+                user.setStory(resultSet.getString("story"));
+                user.setRate(resultSet.getInt("rate"));
+            } else {
+                System.out.println("Không tìm thấy người dùng có user_id = " + id);
+            }
+
+        connection1.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public static List<UserDB> getTop(int limit) {
+        List<UserDB> list = new ArrayList<>();
+        try {
+            DatabaseConnection connectionNow = new DatabaseConnection();
+            Connection connectDB = connectionNow.getConnection();
+
+            String query = "SELECT u.username, ud.point " +
+                    "FROM users u " +
+                    "JOIN userDetails ud ON u.user_id = ud.user_id " +
+                    "ORDER BY ud.point DESC " +
+                    "LIMIT ?";
+            PreparedStatement statement = connectDB.prepareStatement(query);
+            statement.setInt(1, limit);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                UserDB user = new UserDB();
+                user.setUserName(resultSet.getString("username"));
+                user.setPoint(resultSet.getInt("point"));
+                list.add(user);
+            }
+            connectDB.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Xử lý ngoại lệ nếu cần
         }
         return list;
     }

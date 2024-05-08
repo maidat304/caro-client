@@ -66,7 +66,7 @@ public class ChatControler implements Initializable {
 
             Label friendNameLabel = new Label();
             friendNameLabel.setText("" + name);
-            friendNameLabel.setStyle("-fx-font-size: 14px;");
+            friendNameLabel.setStyle("-fx-font-size: 14px; -fx-text-fill: white;");
             friendNameLabel.setAlignment(Pos.CENTER);
 
             friendInfoView.getChildren().add(friendAvatar);

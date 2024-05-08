@@ -32,5 +32,8 @@ public class UserInfoController implements Initializable {
         String name = userNameLabel.getText();
         userNameLabel.setText(name + getUser().getUserName());
 
+        pointLabel.setText(pointLabel.getText() +  getUser().getPoint() );
+        rateLabel.setText(rateLabel.getText() + getUser().getRate());
+        scrisptLabel.setText(scrisptLabel.getText() + getUser().getStory());
     }
 }

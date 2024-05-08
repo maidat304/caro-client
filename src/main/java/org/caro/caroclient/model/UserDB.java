@@ -13,6 +13,10 @@ public class UserDB {
     private  String userId;
     private  String userPassword;
     public List<UserDB> ListFriend = new ArrayList<>();
+    private int point;
+    private int turns;
+    private String story;
+    private int rate;
 
 
     public void setUserName(String newUserName) {
@@ -46,5 +50,35 @@ public class UserDB {
         hasUser = x;
     };
 
+    public int getPoint() {
+        return point;
+    }
 
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getTurns() {
+        return turns;
+    }
+
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
+
+    public String getStory() {
+        return story;
+    }
+
+    public void setStory(String story) {
+        this.story = story;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
 }

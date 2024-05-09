@@ -1,6 +1,5 @@
 package org.caro.caroclient.controller;
 
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -40,30 +39,43 @@ public class ShowFriendController implements Initializable {
     @FXML
     private Button showListButton;
 
-    private VBox boxFindFriend = new VBox();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        boxFindFriend.setVisible(false);
+
         showBox.setSpacing(10);
+
        for(String fname : getListFriendNames()){
             themBox(fname,showBox);
-        }
+       }
        showListButton.setOnAction(actionEvent -> {
-           showBox.setVisible(true);
-           boxFindFriend.setVisible(false);
+         for(String name : getListFriendNames()){
+             themBox(name, showBox);
+         }
+
        });
        addFriendButton.setOnAction(actionEvent -> {
-           showBox.setVisible(false);
-           boxFindFriend.getChildren().clear();
-           boxFindFriend.setVisible(true);
+      showBox.getChildren().clear();
        });
        textNeedFind.textProperty().addListener(new ChangeListener<String>() {//tao doi tuong listener moi
            @Override
         public void changed(ObservableValue<? extends String> name, String oldValue, String newValue) {
-               showBox.getChildren().clear();
+               System.out.println("change");
                find(newValue);
         }
+
        });
+       findButton.setOnAction(actionEvent -> {
+           find(textNeedFind.getText());
+       });
+    }
+    private void find(String findName){
+        showBox.getChildren().clear();
+        for (String name : getListFriendNames()){
+            if(name.contains(findName)){
+                themBox(name,showBox);
+            }
+        }
     }
     public void themBox(String name, VBox boxName){
         Image iconMess = new Image(getClass().getResourceAsStream("/Images/messenger.png"));
@@ -95,18 +107,4 @@ public class ShowFriendController implements Initializable {
         boxName.getChildren().add(friendBox);
     }
 
-    private void find(String findName){
-        for (String name : getListFriendNames()){
-            if(name.contains(findName)){
-                ///code nao do de chi hien ra ng can tim
-                if(showBox.isVisible()){
-                    themBox(name,showBox);
-                }else if(boxFindFriend.isVisible()){
-                    themBox(name,boxFindFriend);
-                }
-
-            }
-        }
-
-    }
 }

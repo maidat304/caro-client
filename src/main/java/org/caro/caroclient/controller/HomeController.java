@@ -71,7 +71,7 @@ public class HomeController implements Initializable {
             goToScene("PlayAuto.fxml","Play now",playNowButton);
         });
         playWithFriendButton.setOnAction(actionEvent -> {
-            goToScene("PlayWFriend.fxml","Let's Play",playWithFriendButton);
+            alertScene("Room.fxml","Choose Room");
         });
         menuButton.setOnAction(actionEvent -> {
             alertScene("Menu.fxml", "menu");

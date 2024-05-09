@@ -10,9 +10,7 @@ import javafx.scene.image.ImageView;
 
 
 import java.net.URL ;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import static org.caro.caroclient.controller.Utils.goToScene;
@@ -20,8 +18,7 @@ import static org.caro.caroclient.controller.Utils.goToScene;
 public class registerController implements Initializable {
     @FXML
     private Label registerMessageLabel;
-    @FXML
-    private TextField userID ;
+
     @FXML
     private TextField userName;
     @FXML
@@ -49,7 +46,7 @@ public class registerController implements Initializable {
     }
 
     public void sendButtonAction(){
-        if(!userID.getText().isBlank() && !userName.getText().isBlank()
+        if(!userName.getText().isBlank()
         && !password.getText().isBlank() && !rePassword.getText().isBlank()) {
             validateRegister();
         }else {
@@ -61,24 +58,17 @@ public class registerController implements Initializable {
 
     public void validateRegister(){
         //mat khau co it nhat 6 chu cai& chu so, pw = repw, userid phai co ca chu so va chu cai
-        String userIDText = userID.getText();
+
         String passwordText = password.getText();
         String rePasswordText = rePassword.getText();
         registerMessageLabel.setStyle("-fx-text-fill : #ab1f12;");
-
-        boolean hasLetter = false;
-        boolean hasDigit = false;
-        for (char c : userIDText.toCharArray()) {
-            if (Character.isLetter(c)) {
-                hasLetter = true;
-            } else if (Character.isDigit(c)) {
-                hasDigit = true;
-            }
-        }
-        if (!hasLetter || !hasDigit) {
-            registerMessageLabel.setText("User ID must contain at least one letter and one digit.");
+        if (isUserNameExists(userName.getText())) {
+            registerMessageLabel.setText("User Name already exists. Please choose another one.");
             return;
         }
+        boolean hasLetter = false;
+        boolean hasDigit = false;
+
 
         if (passwordText.length() < 6) {
             registerMessageLabel.setText("Password must be at least 6 characters long.");
@@ -112,17 +102,44 @@ public class registerController implements Initializable {
         goToScene("Home.fxml","HOME",registerMessageLabel);
     }
 
+    private boolean isUserNameExists(String text) {
+        DatabaseConnection connectionDB = new DatabaseConnection();
+        Connection connection = connectionDB.getConnection();
+
+        String query = "SELECT COUNT(*) FROM users WHERE username = ?";
+        try{
+            PreparedStatement pStatement = connection.prepareStatement(query);
+            pStatement.setString(1, text);
+            ResultSet result= pStatement.executeQuery();
+
+            if(result.next()){
+                if(result.getInt(1) > 0) {
+                    connection.close();
+                    return true;
+                } else {
+                    connection.close();
+                    return false;
+                }
+            }else{
+                connection.close();
+                return false;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+            return false;
+        }
+    }
+
     public void insertUser(){
         DatabaseConnection connetionNow = new DatabaseConnection();
         Connection connectDB = connetionNow.getConnection();
 
-        String userIDText = userID.getText();
         String userNameText = userName.getText();
         String passwordText = password.getText();
         //String rePasswordText = rePassword.getText();
 
-        String insertString = "INSERT INTO users (user_id, username, password) VALUES ('" +
-                userIDText + "', '" + userNameText + "', '" + passwordText + "')";
+        String insertString = "INSERT INTO users (username, password) VALUES ('"  + userNameText + "', '" + passwordText + "')";
 
         try {
             Statement statement = connectDB.createStatement();
@@ -146,25 +163,6 @@ public class registerController implements Initializable {
         }
 
 
-    }  
-
-//    public void goToHome(){
-//
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-//        try {
-//            Parent root = loader.load();
-//            Scene scene = new Scene(root);
-//            Stage stage = new Stage();
-//
-//            stage.setTitle("HOME");
-//            stage.setScene(scene);
-//            stage.show();
-//
-//            Stage currentStage = (Stage) registerMessageLabel.getScene().getWindow();
-//            currentStage.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    }
 
 }

@@ -6,14 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-import static org.caro.caroclient.controller.Utils.alertScene;
-import static org.caro.caroclient.controller.Utils.goToScene;
-import static org.caro.caroclient.model.UserDB.getUserId;
+import static org.caro.caroclient.controller.Utils.*;
+import static org.caro.caroclient.model.UserManager.*;
 
 public class HomeController implements Initializable {
 
@@ -56,12 +56,17 @@ public class HomeController implements Initializable {
     @FXML
     private Label userID;
 
+    @FXML
+    private Button exitButton;
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menuImage.setRotate(270);
-        userID.setText(getUserId());
+        userID.setText("Name : "+ getUser().getUserName());
+        setListFriend();
+        getMoreUserDetails(getUser().getUserId());
         playNowButton.setOnAction(actionEvent ->{
             goToScene("PlayAuto.fxml","Play now",playNowButton);
         });
@@ -74,9 +79,23 @@ public class HomeController implements Initializable {
         chatButton.setOnAction(actionEvent -> {
             alertScene("Chat.fxml","Chatting");
         });
+        rankButton.setOnAction(actionEvent -> {
+            alertScene("XepHang.fxml", "Bang Xep Hang");
+        });
+        settingButton.setOnAction(actionEvent -> {
+            alertScene("UserInfo.fxml","Thong tin");
+        });
+        friendButton.setOnAction(actionEvent -> {
+            alertScene("ShowFriend.fxml","Danh sach ban be");
+        });
     }
-
-
+    public void handleExitButton(){
+        boolean result = alertConfirm("Thoát","Bạn chắc chắn muốn thoát ? ","tiếp tục");
+        if(result){
+            Stage thisStage = (Stage)  exitButton.getScene().getWindow();
+            thisStage.close();
+        }
+    }
 
 
 }

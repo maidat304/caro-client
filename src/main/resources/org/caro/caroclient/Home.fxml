@@ -58,16 +58,20 @@
             </VBox>
          </children>
       </AnchorPane>
-      <Label layoutX="889.0" layoutY="1.0" text="EXIT" textFill="#008dda" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="1.0">
+      <Label layoutX="859.5555555555557" layoutY="20.0" text="EXIT" textFill="#008dda" AnchorPane.rightAnchor="79.22222222222217" AnchorPane.topAnchor="20.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="941.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
-         <image>
-            <Image url="@../../../Images/exit.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="exitButton" layoutX="896.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="18.0" prefWidth="39.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
       <HBox layoutX="9.0" layoutY="474.0" prefHeight="112.0" prefWidth="960.0">
          <children>
             <BorderPane prefHeight="112.0" prefWidth="150.0">

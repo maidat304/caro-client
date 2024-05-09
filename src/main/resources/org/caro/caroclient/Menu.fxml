@@ -97,7 +97,7 @@
                            <children>
                               <Label layoutX="14.0" layoutY="5.0" prefHeight="17.0" prefWidth="51.0" text="Cụ thể :" />
                               <TextArea fx:id="feedBack" layoutX="14.0" layoutY="29.0" prefHeight="122.0" prefWidth="323.0" />
-                              <Button fx:id="sendButton" layoutX="161.0" layoutY="161.0" mnemonicParsing="false" onAction="#sendFeedBack" style="-fx-background-color: black;" text="Gửi" textFill="WHITE" />
+                              <Button fx:id="sendButton" layoutX="161.0" layoutY="161.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Gửi" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </children>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.caro.caroclient.controller.XepHangController">
+   <children>
+      <ScrollPane prefHeight="400.0" prefWidth="600.0">
+         <content>
+            <VBox prefHeight="396.0" prefWidth="571.0" style="-fx-background-color: #97D9FD;">
+               <children>
+                  <ImageView fitHeight="196.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/bangXepHang.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane prefHeight="206.0" prefWidth="591.0">
+                     <children>
+                        <HBox layoutX="150.0" layoutY="-2.0" prefHeight="32.0" prefWidth="300.0">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="64.0" text="Thứ hạng" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="110.0" text="Tên" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="110.0" text="Điểm số" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="rankBox" layoutX="147.0" layoutY="25.0" prefHeight="175.0" prefWidth="59.0" />
+                        <VBox fx:id="userNameBox" layoutX="215.0" layoutY="25.0" prefHeight="175.0" prefWidth="108.0" />
+                        <VBox fx:id="pointBox" layoutX="324.0" layoutY="25.0" prefHeight="175.0" prefWidth="117.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
